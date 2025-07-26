@@ -1,8 +1,4 @@
 ---
-
-### ✅ **AI Voice Assistant – All-in-One ReadMe (with Security Policy)**
-
-````markdown
 <h1 align="center">🎙️ Vinay's AI Voice Assistant 🤖</h1>
 <p align="center">
   <em>Your smart, supportive, and emotionally-aware AI that understands you — not just your commands.</em><br>
@@ -47,7 +43,7 @@ cp .env.example .env
 
 # 4. Run the Assistant
 python main.py
-````
+
 
 ---
 
