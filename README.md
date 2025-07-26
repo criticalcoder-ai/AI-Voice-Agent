@@ -46,7 +46,7 @@ python main.py
 
 
 ---
-
+---
 ## 🧠 How It Works
 
 1. Detects your voice input
