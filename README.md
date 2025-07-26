@@ -1,9 +1,18 @@
+<h1 align="center">🎙️ Vinay's AI Voice Assistant</h1>
 
-# 🤖 Vinay's AI Voice Assistant — Smart • Secure • Supportive 💬
+<p align="center">
+  <img src="https://img.shields.io/badge/Voice%20Assistant-AI%20Powered-blueviolet?style=flat-square&logo=google" />
+  <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square&logo=livechat" />
+  <img src="https://img.shields.io/badge/Made%20with-Python-blue?style=flat-square&logo=python" />
+</p>
 
-Welcome to **Vinay's AI Voice Assistant**, your intelligent voice-powered companion built to be helpful, emotionally aware, and always by your side.
+<p align="center">
+  🤖 A real-time, emotionally intelligent AI assistant that listens, understands, and acts — just for you. Built with ❤️ using Python, Google Realtime LLM, and LiveKit.
+</p>
 
-It’s like JARVIS meets Google Assistant — only smarter, warmer, and just for you. 💡
+<p align="center">
+  <img src="https://media.giphy.com/media/SWnYxeGC7ihwNFZobG/giphy.gif" width="70%" alt="AI Assistant demo"/>
+</p>
 
 ---
 
