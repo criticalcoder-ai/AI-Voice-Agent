@@ -14,3 +14,4 @@ mem0ai
 duckduckgo-search
 langchain_community
 requests
+tools

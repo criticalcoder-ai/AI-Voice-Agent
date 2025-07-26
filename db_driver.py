@@ -1,7 +1,4 @@
-# db_driver.py
-
 import sqlite3
-from datetime import datetime
 
 class PersonalAssistantDB:
     def __init__(self, db_name="assistant_data.db"):
@@ -10,62 +7,21 @@ class PersonalAssistantDB:
 
     def create_tables(self):
         cursor = self.conn.cursor()
-        # User Profile Table
         cursor.execute("""
-        CREATE TABLE IF NOT EXISTS user_profile (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            name TEXT,
-            preferences TEXT
-        )
-        """)
-        # Reminders Table
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS reminders (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            title TEXT,
-            time TEXT
-        )
-        """)
-        # Notes Table
-        cursor.execute("""
-        CREATE TABLE IF NOT EXISTS notes (
-            id INTEGER PRIMARY KEY AUTOINCREMENT,
-            content TEXT,
-            created_at TEXT
-        )
+            CREATE TABLE IF NOT EXISTS schedule (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                task TEXT NOT NULL,
+                time TEXT NOT NULL
+            )
         """)
         self.conn.commit()
 
-    def add_profile(self, name, preferences=""):
+    def add_schedule(self, task, time):
         cursor = self.conn.cursor()
-        cursor.execute("INSERT INTO user_profile (name, preferences) VALUES (?, ?)", (name, preferences))
+        cursor.execute("INSERT INTO schedule (task, time) VALUES (?, ?)", (task, time))
         self.conn.commit()
 
-    def get_profile(self):
+    def get_all_schedules(self):
         cursor = self.conn.cursor()
-        cursor.execute("SELECT * FROM user_profile LIMIT 1")
-        return cursor.fetchone()
-
-    def add_reminder(self, title, time):
-        cursor = self.conn.cursor()
-        cursor.execute("INSERT INTO reminders (title, time) VALUES (?, ?)", (title, time))
-        self.conn.commit()
-
-    def get_reminders(self):
-        cursor = self.conn.cursor()
-        cursor.execute("SELECT * FROM reminders")
+        cursor.execute("SELECT * FROM schedule")
         return cursor.fetchall()
-
-    def add_note(self, content):
-        cursor = self.conn.cursor()
-        now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-        cursor.execute("INSERT INTO notes (content, created_at) VALUES (?, ?)", (content, now))
-        self.conn.commit()
-
-    def get_notes(self):
-        cursor = self.conn.cursor()
-        cursor.execute("SELECT * FROM notes")
-        return cursor.fetchall()
-
-    def close(self):
-        self.conn.close()

@@ -7,6 +7,11 @@ import smtplib
 from email.mime.multipart import MIMEMultipart  
 from email.mime.text import MIMEText
 from typing import Optional
+from dotenv import load_dotenv
+from email.message import EmailMessage
+from datetime import datetime
+
+
 
 @function_tool()
 async def get_weather(
@@ -60,6 +65,8 @@ async def send_email(
         message: Email body content
         cc_email: Optional CC email address
     """
+    load_dotenv()  # Ensure environment variables are loaded
+
     try:
         # Gmail SMTP configuration
         smtp_server = "smtp.gmail.com"
@@ -96,8 +103,6 @@ async def send_email(
         # Send email
         text = msg.as_string()
         server.sendmail(gmail_user, recipients, text)
-        server.quit()
-        
         logging.info(f"Email sent successfully to {to_email}")
         return f"Email sent successfully to {to_email}"
         
@@ -110,3 +115,91 @@ async def send_email(
     except Exception as e:
         logging.error(f"Error sending email: {e}")
         return f"An error occurred while sending email: {str(e)}"
+    finally:
+        if server:
+            server.quit()
+   
+@function_tool()
+async def get_current_time(
+    context: RunContext  # type: ignore
+) -> str:
+    """
+    Get the current time on the user's device.
+    """
+    current_time = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    logging.info(f"Current time: {current_time}")
+    return f"Current time is {current_time}"
+    
+    
+@function_tool()
+async def open_app(
+    context: RunContext,  # type: ignore
+    app_name: str) -> str:
+    """
+    Open an app on the user's device.
+    """
+    try:
+        # Placeholder for actual app opening logic
+        logging.info(f"Opening {app_name}")
+        return f"Opening {app_name}..."
+    except Exception as e:
+        logging.error(f"Error opening {app_name}: {e}")
+        return f"An error occurred while trying to open {app_name}."
+
+@function_tool()
+async def run_command(
+    context: RunContext,  # type: ignore
+    command: str) -> str:
+    """
+    Run a system command.
+    """
+    try:
+        # Placeholder for actual command execution logic
+        logging.info(f"Running command: {command}")
+        return f"Running command: {command}"
+    except Exception as e:
+        logging.error(f"Error running command '{command}': {e}")
+        return f"An error occurred while trying to run the command '{command}'."
+    
+@function_tool()
+async def db_add_data(
+    context: RunContext,  # type: ignore
+    task: str,
+    time: str) -> str:
+    """
+    Add a schedule entry to the database.
+    """
+    from db_driver import PersonalAssistantDB
+    try:
+        db = PersonalAssistantDB()
+        db.add_schedule(task, time)
+        logging.info(f"Added schedule: {task} at {time}")
+        return f"Schedule added: {task} at {time}"
+    except Exception as e:
+        logging.error(f"Error adding schedule '{task}': {e}")
+        return f"An error occurred while adding the schedule '{task}'."
+   
+@function_tool()
+async def db_query_data(
+    context: RunContext,  # type: ignore
+    task: Optional[str] = None) -> str:
+    """
+    Query schedule entries from the database.
+    
+    Args:
+        task: Optional task to filter results. If None, returns all schedules.
+    """
+    from db_driver import PersonalAssistantDB
+    try:
+        db = PersonalAssistantDB()
+        schedules = db.get_all_schedules() if not task else [s for s in db.get_all_schedules() if task in s[1]]
+        if schedules:
+            result = "\n".join([f"{s[1]} at {s[2]}" for s in schedules])
+            logging.info(f"Queried schedules: {result}")
+            return f"Schedules:\n{result}"
+        else:
+            return "No schedules found."
+    except Exception as e:
+        logging.error(f"Error querying schedules: {e}")
+        return "An error occurred while querying schedules."
+    
