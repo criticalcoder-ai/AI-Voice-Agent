@@ -13,7 +13,7 @@
 </p>
 
 <p align="center">
-  <img src="[https://media.giphy.com/media/SWnYxeGC7ihwNFZobG/giphy.gif](https://media.giphy.com/media/v1.Y2lkPTc5MGI3NjExeHR4MGF1czRkMWM0YWswbW5wbXFjamZ0dTBqcGthbHpreXZueGk4OSZlcD12MV9naWZzX3NlYXJjaCZjdD1n/8xUapU951fWEgB93Yl/giphy.gif)" width="70%" alt="AI Voice Assistant Demo"/>
+  <img src="[https://media.giphy.com/media/SWnYxeGC7ihwNFZobG/giphy.gif]" width="70%" alt="AI Voice Assistant Demo"/>
 </p>
 
 ---
