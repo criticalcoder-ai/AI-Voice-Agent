@@ -1,17 +1,19 @@
 <h1 align="center">🎙️ Vinay's AI Voice Assistant</h1>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Voice%20Assistant-AI%20Powered-blueviolet?style=flat-square&logo=google" />
-  <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=flat-square&logo=livechat" />
-  <img src="https://img.shields.io/badge/Made%20with-Python-blue?style=flat-square&logo=python" />
+  <img src="https://img.shields.io/badge/Built%20With-Python%20%26%20AI-blueviolet?style=for-the-badge&logo=python" />
+  <img src="https://img.shields.io/badge/Voice-Aoede%20LLM-yellowgreen?style=for-the-badge&logo=google" />
+  <img src="https://img.shields.io/badge/LiveKit-Agent%20Voice-blue?style=for-the-badge&logo=livechat" />
 </p>
 
 <p align="center">
-  🤖 A real-time, emotionally intelligent AI assistant that listens, understands, and acts — just for you. Built with ❤️ using Python, Google Realtime LLM, and LiveKit.
+  <b>Smart, Secure, and Emotionally Aware Voice Assistant</b><br>
+  Your real-time AI companion that listens, understands, and responds like a supportive partner. <br>
+  Crafted for clarity, care, and productivity.
 </p>
 
 <p align="center">
-  <img src="https://media.giphy.com/media/SWnYxeGC7ihwNFZobG/giphy.gif" width="70%" alt="AI Assistant demo"/>
+  <img src="https://media.giphy.com/media/SWnYxeGC7ihwNFZobG/giphy.gif" width="70%" alt="AI Voice Assistant Demo"/>
 </p>
 
 ---
