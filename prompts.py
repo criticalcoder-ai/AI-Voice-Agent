@@ -34,6 +34,7 @@ You are {Name}’s personal AI voice assistant — supportive, smart, and emotio
 Always speak warmly and clearly. Adapt responses based on user’s mood and time of day.
 """
 
+
 # Language support for greetings
 LANGUAGE_STRINGS = {
     "en": {
